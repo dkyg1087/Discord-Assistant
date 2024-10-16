@@ -1,1 +1,5 @@
-llm-svc/env
+*/env
+*/dl_env
+*.ipynb
+__pycache__
+/models/
