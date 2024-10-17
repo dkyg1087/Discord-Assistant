@@ -1,8 +1,8 @@
 import os
 
-MODEL_FILE_PATH = "../models/"
-MODEL_NAME = "Llama-3.2-3B-Instruct-Q4_K_M.gguf"
-REPO_NAME = "unsloth/Llama-3.2-3B-Instruct-GGUF"
+MODEL_FILE_PATH = os.getenv("MODEL_FILE_PATH") #"../models/"
+MODEL_NAME = os.getenv("MODEL_NAME") #"Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+REPO_NAME = os.getenv("REPO_NAME") #"unsloth/Llama-3.2-3B-Instruct-GGUF"
 
 if os.path.exists(MODEL_FILE_PATH+REPO_NAME) and any(fname.endswith(".gguf") for fname in os.listdir(MODEL_FILE_PATH+REPO_NAME)):
     print("Model already exists, skipping the download.")
