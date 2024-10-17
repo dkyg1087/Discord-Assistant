@@ -2,4 +2,6 @@
 */dl_env
 *.ipynb
 __pycache__
-/models/
+models/*
+/test/
+*/.vscode/
