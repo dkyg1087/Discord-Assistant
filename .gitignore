@@ -1,7 +1,7 @@
-*/env
-*/dl_env
-*.ipynb
-__pycache__
+**/env
+**/dl_env
+**.ipynb
+**/__pycache__/
 models/*
 /test/
-*/.vscode/
+**/.vscode/
