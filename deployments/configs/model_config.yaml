@@ -1,7 +1,7 @@
 apiVersion: test/v0.1
 kind: ConfigMap
 metadata:
-  name: config-map
+  name: model_config
 data:
   MODEL_FILE_PATH : "models/"
   MODEL_NAME : "Llama-3.2-3B-Instruct-Q4_K_M.gguf"
