@@ -1,0 +1,22 @@
+apiVersion: v0.0.1
+kind: Job
+metadata:
+  - name: llm_downloader
+spec:
+  template:
+    spec:
+      containers:
+      - name: llm-downloader
+        image: llm-downloader
+        envFrom:
+        - configMapRef:
+          name: model_config
+        volumeMounts:
+        - name: model_volume
+          mountPath: /models
+      volumes:
+      - name: model_volume
+        persistentVolumeClaim:
+          claimName: model_volume
+
+      restartPolicy: Never
