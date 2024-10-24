@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: discord-bot-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: kubernetes.docker.internal
+    http:
+      paths:
+      - path: /grammar_check
+        pathType: Prefix
+        backend:
+          service:
+            name: rewrite-service-cluster-ip
+            port:
+              number: 8000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rewrite-service-cluster-ip
+            port:
+              number: 8000

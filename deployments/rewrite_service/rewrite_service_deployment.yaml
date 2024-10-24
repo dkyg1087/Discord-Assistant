@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rewrite-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rewrite-service
+  template:
+    metadata:
+      labels:
+        app: rewrite-service
+    spec: 
+      containers:
+      - name: rewrite-service
+        image: toolzming/rewrite-svc

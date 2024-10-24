@@ -1,22 +1,22 @@
-apiVersion: v0.0.1
+apiVersion: batch/v1
 kind: Job
 metadata:
-  - name: llm_downloader
+  name: llm-downloader
 spec:
   template:
     spec:
       containers:
       - name: llm-downloader
-        image: llm-downloader
+        image: toolzming/llm-downloader:test
         envFrom:
-        - configMapRef:
-          name: model_config
+          - configMapRef:
+              name: model-config
         volumeMounts:
-        - name: model_volume
+        - name: model-volume
           mountPath: /models
       volumes:
-      - name: model_volume
+      - name: model-volume
         persistentVolumeClaim:
-          claimName: model_volume
+          claimName: model-volume
 
       restartPolicy: Never
