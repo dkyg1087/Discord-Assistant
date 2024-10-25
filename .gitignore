@@ -5,3 +5,5 @@
 models/*
 /test/
 **/.vscode/
+**/discord-env
+**/.env
