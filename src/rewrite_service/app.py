@@ -1,8 +1,10 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 import httpx
 
-MICRO_SERVICE_URL = "http://localhost:8000/complete/"
+MICRO_SERVICE_URL = os.getenv("MICRO_SERVICE_URL") # "http://llm-service-cluste-ip:8000/complete/"
+
 
 app = FastAPI()
 

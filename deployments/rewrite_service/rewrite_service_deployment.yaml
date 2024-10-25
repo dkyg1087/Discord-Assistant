@@ -14,4 +14,7 @@ spec:
     spec: 
       containers:
       - name: rewrite-service
-        image: toolzming/rewrite-svc
+        image: toolzming/rewrite-svc:test
+        envFrom:
+          - configMapRef:
+              name: llm-service-config
