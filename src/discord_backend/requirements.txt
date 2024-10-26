@@ -1,0 +1,3 @@
+discord.py
+audioop-lts
+httpx

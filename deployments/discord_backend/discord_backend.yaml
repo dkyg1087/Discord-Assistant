@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-backend-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discord-backend
+  template:
+    metadata:
+      labels:
+        app: discord-backend
+    spec:
+      containers:
+      - name: discord-backend
+        image: toolzming/discord-server:test
+        envFrom:
+          - configMapRef:
+              name: llm-service-config
+          - secretRef:
+              name: my-secret 

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llm-service-config
+data:
+  REWRITE_SERVICE_URL: http://rewrite-service-cluster-ip:8000/grammar_check/
+  

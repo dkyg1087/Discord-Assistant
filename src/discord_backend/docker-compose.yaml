@@ -1,0 +1,6 @@
+services:
+  app:
+    image: toolzming/discord-server:test
+    environment:
+      - TOKEN=${TOKEN}
+      - SERVER_ID=${SERVER_ID}
