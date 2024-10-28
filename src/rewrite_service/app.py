@@ -19,7 +19,7 @@ async def call_llm_service_get_response(content):
             response = await client.post(MICRO_SERVICE_URL, json = content)
             return response.json()
         except Exception as e:
-            return f"Error returning response from LLM service:{e}"
+            return {"result":f"Error returning response from LLM service:{e}"}
     
 
 class rewriteRequest(BaseModel):

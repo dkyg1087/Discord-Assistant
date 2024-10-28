@@ -18,6 +18,6 @@ spec:
         image: toolzming/discord-server:test
         envFrom:
           - configMapRef:
-              name: llm-service-config
+              name: rewrite-service-config
           - secretRef:
               name: my-secret 

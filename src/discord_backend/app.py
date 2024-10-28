@@ -68,7 +68,7 @@ async def do_grammar_check(text):
             response = await client.post(REWRITE_SERVICE_URL, json = {"message":text})
             return response.json()
         except Exception as e:
-            return {"result":f"Error returning response from LLM service:{e}"}
+            return {"result":f"Error fetching response from rewrite-service:{e}"}
 
 @client.tree.command()
 @app_commands.rename(text_to_send='message')
