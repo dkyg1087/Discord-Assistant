@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gke-retain-storage
+provisioner: kubernetes.io/gce-pd  # Google Cloud Persistent Disk provisioner
+parameters:
+  type: pd-standard  # Use pd-ssd for SSD storage
+reclaimPolicy: Retain  # Set the reclaim policy to Retain
+volumeBindingMode: WaitForFirstConsumer  # Optional, waits for a pod to be scheduled
