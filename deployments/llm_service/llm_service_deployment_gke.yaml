@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-service-cuda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-service
+  template:
+    metadata:
+      labels:
+        app: llm-service
+    spec:
+      nodeSelector:
+        cloud.google.com/gke-accelerator: nvidia-tesla-t4
+        cloud.google.com/gke-accelerator-count: "1"
+      initContainers:
+      - name: llm-downloader-init-container
+        image: toolzming/llm-downloader:test
+        envFrom:
+          - configMapRef:
+              name: model-config   # Ensure correct indentation here
+        volumeMounts:
+          - name: model-volume
+            mountPath: /models
+      containers:
+      - name: llm-service
+        image: toolzming/llm-svc:gke  # Ensure to specify the container image
+        envFrom:
+          - configMapRef:
+              name: model-config  # Ensure correct indentation here
+        volumeMounts:
+          - name: model-volume
+            mountPath: /models
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+            cpu: "2"
+            memory: "8Gi"
+      volumes:
+      - name: model-volume
+        persistentVolumeClaim:
+          claimName: model-volume
