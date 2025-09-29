@@ -1,3 +1,9 @@
+
+
+# !Thisproject is currently paused!
+
+### I will try to revisit this someday.
+
 # Discord Assistant
 
 **NOTE: THIS PROJECT IS STILL IN AN VERY EARLY STAGE OF DEVELOPMENT.**
